@@ -1,0 +1,1023 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UnityCore by EverUp Digital - Enterprise Operations Platform Proposal</title>
+    <meta name="description" content="Transform your business operations with UnityCore by EverUp Digital - Next-generation enterprise platform with real-time communication, AI insights & comprehensive task management">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏛️</text></svg>">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.4;
+            color: #1f2937;
+            background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%);
+            animation: pageLoad 0.8s ease-in;
+        }
+        
+        @keyframes pageLoad {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .proposal {
+            max-width: 8.5in;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            min-height: 11in;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+            color: white;
+            padding: 2rem;
+            position: relative;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 200px;
+            height: 200px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transform: translate(50px, -50px);
+        }
+        
+        .logo-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 900;
+            letter-spacing: -0.025em;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .proposal-tag {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+        
+        .headline {
+            font-size: 2.25rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            line-height: 1.1;
+        }
+        
+        .subheadline {
+            font-size: 1.125rem;
+            opacity: 0.9;
+            font-weight: 400;
+        }
+        
+        .content {
+            padding: 3rem 2rem;
+        }
+        
+        .section {
+            background: #f8fafc;
+            border-radius: 12px;
+            padding: 2rem;
+            border-left: 4px solid #dc2626;
+            margin-bottom: 3rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            border: 1px solid #e2e8f0;
+        }
+        
+        .section-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #dc2626;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .icon {
+            width: 24px;
+            height: 24px;
+            fill: currentColor;
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .feature-item {
+            background: white;
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 3px solid #dc2626;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.06), 0 1px 2px -1px rgba(0, 0, 0, 0.06);
+            border: 1px solid #f1f5f9;
+        }
+        
+        .feature-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-item h4 {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #dc2626;
+        }
+        
+        .feature-item p {
+            font-size: 0.875rem;
+            color: #6b7280;
+        }
+        
+        .screenshot-section {
+            margin: 2rem 0;
+        }
+        
+        .screenshot-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .screenshot-item {
+            text-align: center;
+            position: relative;
+        }
+        
+        .screenshot-item img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e5e7eb;
+        }
+        
+        .screenshot-caption {
+            font-size: 0.875rem;
+            color: #6b7280;
+            margin-top: 0.5rem;
+            font-weight: 500;
+        }
+        
+        .hero-screenshot {
+            text-align: center;
+            margin: 1.5rem 0;
+        }
+        
+        .hero-screenshot img {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            border: 2px solid #dc2626;
+        }
+        
+        .comparison {
+            background: linear-gradient(135deg, #1f2937 0%, #374151 100%);
+            color: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .vs-item {
+            text-align: center;
+            padding: 1rem;
+        }
+        
+        .vs-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .vs-value {
+            font-size: 1.5rem;
+            font-weight: 800;
+        }
+        
+        .savings-highlight {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+            margin: 1rem 0;
+        }
+        
+        .savings-amount {
+            font-size: 2rem;
+            font-weight: 900;
+            margin-bottom: 0.5rem;
+        }
+        
+        .pricing-section {
+            background: linear-gradient(135deg, #f3f4f6 0%, #e5e7eb 100%);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .pricing-card {
+            background: white;
+            border-radius: 8px;
+            padding: 1rem;
+            text-align: center;
+            border: 2px solid #e5e7eb;
+            transition: transform 0.2s ease;
+        }
+        
+        .pricing-card:hover {
+            transform: translateY(-2px);
+        }
+        
+        .pricing-card.featured {
+            border-color: #dc2626;
+            background: linear-gradient(135deg, #fef2f2 0%, #white 100%);
+        }
+        
+        .price {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #dc2626;
+        }
+        
+        .price-label {
+            font-size: 0.875rem;
+            color: #6b7280;
+            margin-top: 0.25rem;
+        }
+        
+        .cta-section {
+            background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="75" cy="75" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="50" cy="10" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            opacity: 0.3;
+        }
+        
+        .cta-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .cta-title {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1rem;
+            font-weight: 600;
+        }
+        
+        .footer {
+            position: absolute;
+            bottom: 1rem;
+            left: 2rem;
+            right: 2rem;
+            text-align: center;
+            font-size: 0.75rem;
+            color: #6b7280;
+            border-top: 1px solid #e5e7eb;
+            padding-top: 1rem;
+        }
+        
+        .tech-specs {
+            background: #f8fafc;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+            font-size: 0.875rem;
+        }
+        
+        .tech-specs h4 {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #374151;
+        }
+        
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+        
+        /* Next Steps Section */
+        .next-steps {
+            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border: 1px solid #3b82f6;
+        }
+        
+        .timeline-item {
+            display: flex;
+            align-items: center;
+            margin: 0.75rem 0;
+            font-size: 0.875rem;
+        }
+        
+        .timeline-dot {
+            width: 8px;
+            height: 8px;
+            background: #3b82f6;
+            border-radius: 50%;
+            margin-right: 1rem;
+        }
+        
+        .testimonial {
+            background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1.5rem 0;
+            border: 1px solid #22c55e;
+            text-align: center;
+            font-style: italic;
+            color: #15803d;
+        }
+        
+        .custom-pricing {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border: 2px solid #f59e0b;
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            margin: 3rem 0;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        
+        /* CTA Button Styles */
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+            color: white;
+            padding: 0.875rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 14px 0 rgba(220, 38, 38, 0.39);
+            border: none;
+            cursor: pointer;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px 0 rgba(220, 38, 38, 0.4);
+        }
+        
+        .cta-button-secondary {
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+        }
+        
+        .cta-button-secondary:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+        .expandable-image {
+            cursor: pointer;
+            transition: transform 0.2s ease;
+            position: relative;
+        }
+        
+        .expandable-image:hover {
+            transform: scale(1.02);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.2) !important;
+        }
+        
+        .expandable-image::after {
+            content: '🔍 Click to expand';
+            position: absolute;
+            bottom: 8px;
+            right: 8px;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            opacity: 0;
+            transition: opacity 0.2s ease;
+            pointer-events: none;
+        }
+        
+        .expandable-image:hover::after {
+            opacity: 1;
+        }
+        
+        .image-modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            animation: fadeIn 0.3s ease;
+        }
+        
+        .modal-content {
+            position: relative;
+            margin: auto;
+            display: block;
+            width: 90%;
+            max-width: 1200px;
+            max-height: 90%;
+            top: 50%;
+            transform: translateY(-50%);
+            animation: zoomIn 0.3s ease;
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+        
+        .close-modal:hover {
+            color: #dc2626;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes zoomIn {
+            from { transform: translateY(-50%) scale(0.1); }
+            to { transform: translateY(-50%) scale(1); }
+        }
+        
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .proposal {
+                margin: 0;
+                box-shadow: none;
+            }
+            
+            .header {
+                padding: 1.5rem 1rem;
+            }
+            
+            .content {
+                padding: 1rem;
+            }
+            
+            .logo-section {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+            
+            .headline {
+                font-size: 1.75rem;
+                text-align: center;
+            }
+            
+            .subheadline {
+                text-align: center;
+                font-size: 1rem;
+            }
+            
+            .feature-grid, .screenshot-grid, .two-column {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .pricing-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .section {
+                padding: 1rem;
+                margin-bottom: 1rem;
+            }
+            
+            .section-title {
+                font-size: 1.1rem;
+            }
+            
+            .hero-screenshot img {
+                border-radius: 8px;
+            }
+            
+            /* Executive Summary Mobile Fix */
+            .content > .section:first-child > div > div:first-child {
+                grid-template-columns: 1fr !important;
+                gap: 1rem;
+            }
+            
+            /* Pricing breakdown mobile fix */
+            .pricing-section div[style*="grid-template-columns: 1fr 1fr"] {
+                display: block !important;
+            }
+            
+            .pricing-section div[style*="grid-template-columns: 1fr 1fr"] > div {
+                margin-bottom: 1.5rem;
+            }
+            
+            /* CTA mobile fix */
+            .cta-section div[style*="grid-template-columns: 1fr 1fr"] {
+                display: block !important;
+            }
+            
+            .cta-section div[style*="grid-template-columns: 1fr 1fr"] > div {
+                margin-bottom: 1rem;
+            }
+            
+            /* Text sizes for mobile */
+            .vs-value {
+                font-size: 1.25rem;
+            }
+            
+            .savings-amount {
+                font-size: 1.5rem;
+            }
+            
+            .price {
+                font-size: 1.25rem;
+            }
+            
+            .cta-title {
+                font-size: 1.25rem;
+            }
+            
+            /* Footer mobile */
+            .footer {
+                position: relative;
+                margin-top: 2rem;
+                padding: 1rem;
+                font-size: 0.7rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .header {
+                padding: 1rem 0.75rem;
+            }
+            
+            .content {
+                padding: 0.75rem;
+            }
+            
+            .logo {
+                font-size: 1.5rem;
+            }
+            
+            .headline {
+                font-size: 1.5rem;
+            }
+            
+            .subheadline {
+                font-size: 0.9rem;
+            }
+            
+            .section {
+                padding: 0.75rem;
+            }
+            
+            .section-title {
+                font-size: 1rem;
+                flex-direction: column;
+                text-align: center;
+                gap: 0.25rem;
+            }
+            
+            .feature-item, .tech-specs {
+                padding: 0.75rem;
+            }
+            
+            .screenshot-caption {
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="proposal">
+        <div class="header">
+            <div class="logo-section">
+                <div class="logo">UnityCore</div>
+                <div class="proposal-tag">ENTERPRISE PROPOSAL</div>
+            </div>
+            <h1 class="headline">Transform Your Business Operations</h1>
+            <p class="subheadline">Next-generation enterprise platform with real-time communication, AI insights & comprehensive task management</p>
+        </div>
+        
+        <div class="content">
+            <!-- Executive Summary -->
+            <div class="section" style="background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); border-left: 4px solid #f59e0b;">
+                <h2 class="section-title" style="color: #92400e;">
+                    <svg class="icon" viewBox="0 0 24 24" style="fill: #92400e;">
+                        <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                    Executive Summary
+                </h2>
+                <div style="background: white; padding: 1.5rem; border-radius: 8px; border: 1px solid #f59e0b;">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.5rem; margin-bottom: 1rem;">
+                        <div>
+                            <h4 style="color: #dc2626; font-weight: 700; margin-bottom: 0.5rem;">The Challenge</h4>
+                            <p style="font-size: 0.875rem; color: #374151;">Many enterprises struggle with fragmented communication tools, inefficient task management, and lack of operational insights across their organizations.</p>
+                        </div>
+                        <div>
+                            <h4 style="color: #dc2626; font-weight: 700; margin-bottom: 0.5rem;">Our Solution</h4>
+                            <p style="font-size: 0.875rem; color: #374151;">UnityCore unifies operations with real-time chat, AI-powered insights, and comprehensive task management designed for modern enterprises.</p>
+                        </div>
+                        <div>
+                            <h4 style="color: #dc2626; font-weight: 700; margin-bottom: 0.5rem;">Expected Benefits</h4>
+                            <p style="font-size: 0.875rem; color: #374151;"><strong>Improved efficiency</strong> through streamlined communication, enhanced productivity, and data-driven operational insights.</p>
+                        </div>
+                    </div>
+                    <div style="background: #f0f9ff; padding: 1rem; border-radius: 6px; text-align: center; border: 1px solid #0ea5e9;">
+                        <p style="color: #0c4a6e; font-weight: 600; margin: 0;"><strong>Bottom Line:</strong> Modern platform that consolidates your operational tools while providing AI-driven insights to optimize business performance.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hero Screenshot -->
+            <div class="hero-screenshot">
+                <img src="dashboard.png" alt="UnityCore Dashboard" class="expandable-image" onclick="openModal(this)">
+                <div class="screenshot-caption"><strong>Enterprise Command Center</strong> - Real-time analytics, task management, and business intelligence</div>
+            </div>
+
+            <!-- Platform Overview -->
+            <div class="section">
+                <h2 class="section-title">
+                    <svg class="icon" viewBox="0 0 24 24">
+                        <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                    </svg>
+                    Why UnityCore Excels for Enterprise Operations
+                </h2>
+                
+                <div class="feature-grid">
+                    <div class="feature-item">
+                        <h4>Real-Time Team Communication</h4>
+                        <p>Modern messaging with file sharing, @mentions, reactions, and instant problem resolution across your organization</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>AI-Powered Business Intelligence</h4>
+                        <p>Predictive analytics, performance optimization, and automated recommendations from your operational data</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>Advanced Task Management</h4>
+                        <p>Role-based assignments, priority tracking, and collaborative workflows with visual progress indicators</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4>Integrated Operations</h4>
+                        <p>Unified scheduling, meeting coordination, and automated notifications for seamless business operations</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Screenshots Grid -->
+            <div class="screenshot-section">
+                <h3 style="text-align: center; margin-bottom: 1rem; color: #374151; font-weight: 700;">Core Platform Features</h3>
+                <div class="screenshot-grid">
+                    <div class="screenshot-item">
+                        <img src="chat.png" alt="Chat Interface" class="expandable-image" onclick="openModal(this)">
+                        <div class="screenshot-caption">Real-time messaging with file sharing and team coordination</div>
+                    </div>
+                    <div class="screenshot-item">
+                        <img src="tasks.png" alt="Task Management" class="expandable-image" onclick="openModal(this)">
+                        <div class="screenshot-caption">Comprehensive task tracking with role-based assignments</div>
+                    </div>
+                    <div class="screenshot-item">
+                        <img src="ai-insights.png" alt="AI Insights" class="expandable-image" onclick="openModal(this)">
+                        <div class="screenshot-caption">AI-powered analytics and business recommendations</div>
+                    </div>
+                    <div class="screenshot-item">
+                        <img src="calendar.png" alt="Calendar System" class="expandable-image" onclick="openModal(this)">
+                        <div class="screenshot-caption">Integrated scheduling and event coordination</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Administrative Control Section -->
+            <div class="section">
+                <h2 class="section-title">
+                    <svg class="icon" viewBox="0 0 24 24">
+                        <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/>
+                    </svg>
+                    Administrative Dashboard & Control
+                </h2>
+                <div style="text-align: center; margin: 1.5rem 0;">
+                    <img src="admin-dashboard.png" alt="Administrative Dashboard" class="expandable-image" onclick="openModal(this)" style="width: 100%; border-radius: 12px; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); border: 2px solid #dc2626;">
+                    <div class="screenshot-caption" style="margin-top: 1rem;"><strong>Enterprise Command Center</strong><br>Real-time system metrics, user management, and comprehensive operational analytics</div>
+                </div>
+                <div style="background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); padding: 1rem; border-radius: 8px; border: 1px solid #f59e0b;">
+                    <p style="color: #92400e; font-weight: 600; margin-bottom: 0.5rem;">Executive-Level Insights</p>
+                    <p style="color: #b45309; font-size: 0.875rem;">Complete visibility into team productivity, system performance, and operational efficiency across your organization</p>
+                </div>
+            </div>
+
+            <!-- Platform Workflow Section -->
+            <div class="section">
+                <h2 class="section-title">
+                    <svg class="icon" viewBox="0 0 24 24">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                        <polyline points="22,6 12,13 2,6"/>
+                    </svg>
+                    Complete Platform Workflow
+                </h2>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 1rem;">
+                    <div style="text-align: center;">
+                        <img src="login.png" alt="Secure Login" class="expandable-image" onclick="openModal(this)" style="width: 100%; border-radius: 8px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); border: 1px solid #e5e7eb;">
+                        <div class="screenshot-caption" style="margin-top: 0.75rem;"><strong>Secure Authentication</strong><br>Google SSO with enterprise-grade security</div>
+                    </div>
+                    <div style="text-align: center;">
+                        <img src="task-detail.png" alt="Task Detail View" class="expandable-image" onclick="openModal(this)" style="width: 100%; border-radius: 8px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); border: 1px solid #e5e7eb;">
+                        <div class="screenshot-caption" style="margin-top: 0.75rem;"><strong>Detailed Task Management</strong><br>Comments, attachments, and collaborative workflows</div>
+                    </div>
+                </div>
+                <div style="background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%); padding: 1rem; border-radius: 8px; margin-top: 1.5rem; text-align: center; border: 1px solid #0ea5e9;">
+                    <p style="color: #0c4a6e; font-weight: 600; margin-bottom: 0.5rem;">End-to-End User Experience</p>
+                    <p style="color: #075985; font-size: 0.875rem;">From secure login to detailed task management - every interaction is optimized for business efficiency</p>
+                </div>
+            </div>
+
+            <!-- Testimonial -->
+            <div class="testimonial">
+                <p style="font-weight: 600; margin-bottom: 0.5rem;">"Built with deep understanding of modern enterprise operational challenges"</p>
+                <p style="font-size: 0.875rem;">Designed with insights from distributed team coordination and scalable business operations</p>
+            </div>
+
+            <!-- Technical Specifications -->
+            <div class="two-column">
+                <div class="section">
+                    <h2 class="section-title">
+                        <svg class="icon" viewBox="0 0 24 24">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                        </svg>
+                        Enterprise Features
+                    </h2>
+                    <div class="tech-specs">
+                        <h4>Security & Authentication</h4>
+                        <p>Google SSO, role-based permissions, enterprise security compliance</p>
+                    </div>
+                    <div class="tech-specs">
+                        <h4>Performance & Scalability</h4>
+                        <p>Cloud-native architecture, real-time sync, enterprise-grade deployment</p>
+                    </div>
+                    <div class="tech-specs">
+                        <h4>Analytics & Reporting</h4>
+                        <p>Interactive dashboards, performance metrics, business optimization insights</p>
+                    </div>
+                    <div class="tech-specs">
+                        <h4>Integration Ready</h4>
+                        <p>API-first design, webhook support, existing system compatibility</p>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2 class="section-title">
+                        <svg class="icon" viewBox="0 0 24 24">
+                            <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                        Built for Modern Business
+                    </h2>
+                    <div class="tech-specs">
+                        <h4>Industry-Agnostic Workflows</h4>
+                        <p>Flexible task management, team coordination, multi-location support</p>
+                    </div>
+                    <div class="tech-specs">
+                        <h4>Role-Based Access</h4>
+                        <p>Manager, Team Lead, Employee, Executive permissions and workflows</p>
+                    </div>
+                    <div class="tech-specs">
+                        <h4>Modern UX Design</h4>
+                        <p>Intuitive interface, minimal training required, optimized for productivity</p>
+                    </div>
+                    <div class="tech-specs">
+                        <h4>Multi-Team Communication</h4>
+                        <p>Department channels, cross-team messaging, secure file sharing</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Custom Pricing Section -->
+            <div class="custom-pricing">
+                <h2 style="color: #92400e; font-weight: 800; margin-bottom: 1rem;">
+                    <svg style="width: 24px; height: 24px; fill: #92400e; display: inline; margin-right: 0.5rem;" viewBox="0 0 24 24">
+                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                    </svg>
+                    Flexible Enterprise Pricing
+                </h2>
+                <div style="background: white; padding: 1.5rem; border-radius: 8px; margin: 1rem 0;">
+                    <p style="color: #374151; font-size: 1.1rem; margin-bottom: 1rem; text-align: center;">
+                        <strong>Pricing tailored to your organization's specific needs:</strong>
+                    </p>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 1rem;">
+                        <div>
+                            <h4 style="color: #dc2626; font-weight: 600; margin-bottom: 0.75rem;">Pricing Considerations:</h4>
+                            <ul style="list-style: none; padding: 0; font-size: 0.875rem; color: #374151;">
+                                <li style="margin-bottom: 0.5rem;">✓ Number of locations/departments</li>
+                                <li style="margin-bottom: 0.5rem;">✓ Total user count across organization</li>
+                                <li style="margin-bottom: 0.5rem;">✓ Required system integrations</li>
+                                <li style="margin-bottom: 0.5rem;">✓ Custom feature requirements</li>
+                                <li style="margin-bottom: 0.5rem;">✓ Implementation complexity</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 style="color: #dc2626; font-weight: 600; margin-bottom: 0.75rem;">Enterprise Package Includes:</h4>
+                            <ul style="list-style: none; padding: 0; font-size: 0.875rem; color: #374151;">
+                                <li style="margin-bottom: 0.5rem;">✓ Unlimited platform access</li>
+                                <li style="margin-bottom: 0.5rem;">✓ AI-powered business insights</li>
+                                <li style="margin-bottom: 0.5rem;">✓ Dedicated implementation support</li>
+                                <li style="margin-bottom: 0.5rem;">✓ 24/7 enterprise support</li>
+                                <li style="margin-bottom: 0.5rem;">✓ Custom integrations & training</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div style="background: rgba(220, 38, 38, 0.1); padding: 1rem; border-radius: 6px; border: 2px solid #dc2626;">
+                    <p style="color: #dc2626; font-weight: 700; margin: 0; font-size: 1.1rem;">
+                        Contact us to discuss your specific requirements and receive a customized proposal
+                    </p>
+                </div>
+            </div>
+
+            <!-- Next Steps -->
+            <div class="next-steps">
+                <h2 class="section-title" style="color: #1e40af;">
+                    <svg class="icon" viewBox="0 0 24 24" style="fill: #1e40af;">
+                        <path d="M9 1v6h2V1h2v6h2V1h2v7H7V1h2zM4 9v10h16V9H4zm14 8H6v-6h12v6z"/>
+                    </svg>
+                    Implementation Process
+                </h2>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <strong>Q4 2025:</strong> Requirements analysis, contract finalization, and platform completion
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <strong>Q4 2025 - Q1 2026:</strong> Data migration, system integration, and custom configuration
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <strong>Q1 2026:</strong> Full platform rollout and comprehensive user training
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <strong>Q1 2026:</strong> Go-live support and optimization phase
+                </div>
+                <div style="background: rgba(59, 130, 246, 0.1); padding: 1rem; border-radius: 8px; margin-top: 1rem; text-align: center;">
+                    <p style="color: #1e40af; font-weight: 600;">Full deployment by Q1 2026, with remainder of 2025 dedicated to platform finalization and migration preparation</p>
+                </div>
+            </div>
+
+            <!-- Call to Action -->
+            <div class="cta-section">
+                <div class="cta-content">
+                    <h2 class="cta-title">Ready to Transform Your Operations?</h2>
+                    <p style="font-size: 1.125rem; margin-bottom: 2rem;">Schedule a customized demo and discover how UnityCore can optimize your business operations.</p>
+                    
+                    <!-- Primary CTA Buttons -->
+                    <div style="display: flex; justify-content: center; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap;">
+                        <a href="mailto:steven@everupdigital.com?subject=UnityCore Demo Request&body=Hi Steven,%0D%0A%0D%0AI'm interested in scheduling a demo of UnityCore for our organization. Please let me know your availability for a 15-minute walkthrough.%0D%0A%0D%0AThank you!" class="cta-button cta-button-secondary">
+                            Schedule 15-Minute Demo
+                        </a>
+                        <a href="mailto:steven@everupdigital.com?subject=UnityCore Custom Proposal Request&body=Hi Steven,%0D%0A%0D%0AI'd like to discuss custom pricing and implementation for our organization. When would be a good time to connect?%0D%0A%0D%0AThank you!" class="cta-button cta-button-secondary">
+                            Request Custom Quote
+                        </a>
+                    </div>
+                    
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1.5rem 0; max-width: 600px; margin-left: auto; margin-right: auto;">
+                        <div style="background: rgba(255, 255, 255, 0.15); padding: 1rem; border-radius: 8px; text-align: center;">
+                            <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem;">Schedule Demo</h3>
+                            <p style="font-size: 0.875rem; margin: 0;">See the platform in action with your workflows</p>
+                        </div>
+                        <div style="background: rgba(255, 255, 255, 0.15); padding: 1rem; border-radius: 8px; text-align: center;">
+                            <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.5rem;">Get Custom Quote</h3>
+                            <p style="font-size: 0.875rem; margin: 0;">Receive pricing tailored to your organization</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-info" style="margin-top: 2rem;">
+                        <div style="background: rgba(255, 255, 255, 0.2); padding: 0.75rem 1.5rem; border-radius: 8px;"><strong>steven@everupdigital.com</strong></div>
+                        <div style="background: rgba(255, 255, 255, 0.2); padding: 0.75rem 1.5rem; border-radius: 8px;"><strong>https://unitycore.app</strong></div>
+                    </div>
+                    
+                    <div style="background: rgba(255, 255, 255, 0.15); padding: 1rem; border-radius: 8px; margin-top: 1.5rem; max-width: 500px; margin-left: auto; margin-right: auto;">
+                        <p style="font-weight: 600; margin-bottom: 0.5rem;">Available This Week</p>
+                        <p style="font-size: 0.875rem; margin: 0;">Ready for discovery sessions and requirements analysis</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <div><strong>UnityCore</strong> by EverUp Digital LLC - Next-Generation Enterprise Operations Platform | Powered by Firebase & Google Cloud</div>
+        </div>
+        
+        <!-- Image Modal -->
+        <div id="imageModal" class="image-modal" onclick="closeModal()">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <img class="modal-content" id="modalImage">
+        </div>
+        
+        <script>
+            function openModal(img) {
+                const modal = document.getElementById('imageModal');
+                const modalImg = document.getElementById('modalImage');
+                modal.style.display = 'block';
+                modalImg.src = img.src;
+                modalImg.alt = img.alt;
+                
+                // Prevent scrolling when modal is open
+                document.body.style.overflow = 'hidden';
+            }
+            
+            function closeModal() {
+                const modal = document.getElementById('imageModal');
+                modal.style.display = 'none';
+                
+                // Restore scrolling
+                document.body.style.overflow = 'auto';
+            }
+            
+            // Close modal with Escape key
+            document.addEventListener('keydown', function(event) {
+                if (event.key === 'Escape') {
+                    closeModal();
+                }
+            });
+            
+            // Smooth scroll for internal links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        </script>
+    </div>
+</body>
+</html>
