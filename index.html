@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>UnityCore Proposal</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #1f1f1f;
+      --text: #f0f0f0;
+      --card: #2a2a2a;
+      --muted: #ccc;
+      --footer: #111;
+      --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      --dark-gradient: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    }
+
+    body.light {
+      --bg: #f5f5f5;
+      --text: #1f1f1f;
+      --card: #ffffff;
+      --muted: #555;
+      --footer: #e0e0e0;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', 'Segoe UI', sans-serif;
+      line-height: 1.6;
+      background-color: var(--bg);
+      color: var(--text);
+      transition: background 0.3s, color 0.3s;
+      scroll-behavior: smooth;
+    }
+
+    /* Header Styles */
+    header {
+      background: url('header-banner.png') center/cover no-repeat;
+      background-color: #1a1a2e;
+      color: white;
+      text-align: center;
+      padding: 5rem 1rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Overlay for better text readability */
+    header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(26, 26, 46, 0.7);
+      z-index: 1;
+    }
+
+    /* Animated overlay effect */
+    header::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(102, 126, 234, 0.1) 0%, transparent 70%);
+      animation: pulse 4s ease-in-out infinite;
+      z-index: 2;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 0.5; }
+      50% { transform: scale(1.1); opacity: 0.3; }
+    }
+
+    header img {
+      max-width: 100px;
+      margin-bottom: 1rem;
+      border-radius: 50%;
+      box-shadow: 0 0 20px rgba(102, 126, 234, 0.4);
+      position: relative;
+      z-index: 3;
+      animation: fadeInDown 0.8s ease;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      margin: 0;
+      font-weight: 700;
+      position: relative;
+      z-index: 3;
+      animation: fadeInUp 0.8s ease;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    header p {
+      font-size: 1.25rem;
+      margin-top: 1rem;
+      position: relative;
+      z-index: 3;
+      opacity: 0.95;
+      animation: fadeInUp 0.8s ease 0.2s both;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Theme Toggle */
+    .toggle-wrapper {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      z-index: 10;
+    }
+
+    .toggle-wrapper label {
+      display: flex;
+      align-items: center;
+      font-size: 0.9rem;
+      color: white;
+      cursor: pointer;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 8px 15px;
+      border-radius: 20px;
+      backdrop-filter: blur(10px);
+      transition: background 0.3s ease;
+    }
+
+    .toggle-wrapper label:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .toggle-wrapper input[type="checkbox"] {
+      margin-right: 0.5rem;
+      transform: scale(1.3);
+      cursor: pointer;
+    }
+
+    /* Section Styles */
+    section {
+      padding: 2rem 1rem;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    /* Feature Cards */
+    .feature {
+      background-color: var(--card);
+      border-radius: 16px;
+      padding: 2.5rem;
+      margin-bottom: 3rem;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .feature::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--primary-gradient);
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+    }
+
+    .feature:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    }
+
+    .feature:hover::before {
+      transform: scaleX(1);
+    }
+
+    .feature h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      background: var(--primary-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .feature p {
+      font-size: 1.1rem;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .feature img {
+      max-width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      margin-top: 1.5rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+      opacity: 0;
+      animation: fadeIn 0.6s ease forwards;
+    }
+
+    .feature img:hover {
+      transform: scale(1.02);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Section Separators */
+    .feature:not(:last-child)::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, var(--muted), transparent);
+      margin: 3rem auto -1.5rem;
+      opacity: 0.3;
+    }
+
+    /* Contact Section */
+    .contact-section {
+      background: var(--primary-gradient);
+      color: white;
+      border-radius: 16px;
+      padding: 3rem;
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .contact-section h2 {
+      color: white;
+      -webkit-text-fill-color: white;
+      margin-bottom: 1.5rem;
+    }
+
+    .contact-button {
+      display: inline-block;
+      padding: 15px 40px;
+      background: white;
+      color: #667eea;
+      text-decoration: none;
+      border-radius: 30px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      margin-top: 1rem;
+    }
+
+    .contact-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Footer */
+    footer {
+      background: var(--footer);
+      color: var(--muted);
+      text-align: center;
+      padding: 2rem 1rem;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    /* Progress Dots */
+    .progress-dots {
+      position: fixed;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 100;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .progress-dots .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--muted);
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.3s ease;
+      opacity: 0.5;
+    }
+
+    .progress-dots .dot:hover {
+      transform: scale(1.2);
+      opacity: 1;
+    }
+
+    .progress-dots .dot.active {
+      background: #667eea;
+      opacity: 1;
+    }
+
+    /* Modal Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.95);
+      cursor: zoom-out;
+    }
+
+    .modal-content {
+      display: block;
+      max-width: 90%;
+      max-height: 90%;
+      margin: 5% auto;
+      border-radius: 8px;
+      box-shadow: 0 0 30px rgba(0,0,0,0.6);
+      animation: zoomIn 0.3s ease;
+    }
+
+    @keyframes zoomIn {
+      from {
+        transform: scale(0.8);
+        opacity: 0;
+      }
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    .close {
+      position: absolute;
+      top: 30px;
+      right: 40px;
+      color: white;
+      font-size: 2.5rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .close:hover {
+      transform: scale(1.1);
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Pricing & Implementation Styles */
+    .pricing-implementation {
+      padding: 0;
+      background: transparent;
+      box-shadow: none;
+    }
+
+    .pricing-implementation > h2,
+    .pricing-implementation > p {
+      padding: 2.5rem 2.5rem 0;
+    }
+
+    .pricing-section {
+      background: linear-gradient(135deg, #FFF9E6 0%, #FFE4B5 100%);
+      border-radius: 16px;
+      padding: 2rem;
+      margin: 2rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    body.light .pricing-section {
+      background: linear-gradient(135deg, #FFF3D4 0%, #FFE0A3 100%);
+    }
+
+    .pricing-header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 2rem;
+    }
+
+    .pricing-header .star {
+      color: #B8860B;
+      font-size: 1.5rem;
+    }
+
+    .pricing-header h3 {
+      color: #8B4513;
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin: 0;
+    }
+
+    .pricing-content {
+      text-align: left;
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 2rem;
+    }
+
+    .pricing-column h4 {
+      color: #D2691E;
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .pricing-column ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .pricing-column li {
+      position: relative;
+      padding-left: 1.5rem;
+      margin-bottom: 0.8rem;
+      color: #5D4037;
+      line-height: 1.6;
+    }
+
+    .pricing-column li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: #228B22;
+      font-weight: bold;
+    }
+
+    .pricing-cta {
+      background: rgba(139, 69, 19, 0.1);
+      border-radius: 8px;
+      padding: 1.2rem;
+      text-align: center;
+      border: 2px solid #D2691E;
+    }
+
+    .pricing-cta p {
+      color: #8B4513;
+      font-weight: 600;
+      margin: 0;
+    }
+
+    .implementation-section {
+      background: linear-gradient(135deg, #E6F3FF 0%, #D1E7FF 100%);
+      border-radius: 16px;
+      padding: 2rem;
+      margin: 2rem;
+      margin-top: 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    body.light .implementation-section {
+      background: linear-gradient(135deg, #E0EFFF 0%, #C5E0FF 100%);
+    }
+
+    .implementation-header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 2rem;
+    }
+
+    .implementation-header .icon {
+      font-size: 1.5rem;
+    }
+
+    .implementation-header h3 {
+      color: #1E3A8A;
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin: 0;
+    }
+
+    .timeline {
+      position: relative;
+      padding-left: 3rem;
+      margin-bottom: 2rem;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 1rem;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(180deg, #3B82F6 0%, #1E40AF 100%);
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 2rem;
+    }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -2.4rem;
+      top: 0.5rem;
+      width: 12px;
+      height: 12px;
+      background: #3B82F6;
+      border-radius: 50%;
+      box-shadow: 0 0 0 4px #E6F3FF;
+    }
+
+    .timeline-marker {
+      font-weight: 700;
+      color: #1E3A8A;
+      margin-bottom: 0.5rem;
+      font-size: 1.1rem;
+    }
+
+    .timeline-content p {
+      color: #334155;
+      margin: 0;
+      line-height: 1.6;
+    }
+
+    .implementation-footer {
+      background: rgba(30, 58, 138, 0.1);
+      border-radius: 8px;
+      padding: 1.2rem;
+      text-align: center;
+      border: 2px solid #3B82F6;
+    }
+
+    .implementation-footer p {
+      color: #1E3A8A;
+      margin: 0;
+      font-size: 1.05rem;
+    }
+
+    /* Mobile Responsiveness for Pricing & Implementation */
+    @media (max-width: 768px) {
+      .pricing-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .pricing-section,
+      .implementation-section {
+        margin: 1rem;
+        padding: 1.5rem;
+      }
+
+      .timeline {
+        padding-left: 2rem;
+      }
+
+      .timeline-item::before {
+        left: -1.4rem;
+      }
+
+      .pricing-header h3,
+      .implementation-header h3 {
+        font-size: 1.5rem;
+      }
+    }
+      header h1 {
+        font-size: 2rem;
+      }
+      
+      header p {
+        font-size: 1rem;
+      }
+      
+      .feature {
+        padding: 1.5rem;
+      }
+
+      .feature h2 {
+        font-size: 1.5rem;
+      }
+      
+      section {
+        padding: 1rem 0.5rem;
+      }
+
+      .progress-dots {
+        display: none;
+      }
+
+      .contact-button {
+        padding: 12px 30px;
+        font-size: 1rem;
+      }
+    }
+
+    /* Loading state for images */
+    .loading {
+      display: inline-block;
+      width: 100%;
+      height: 200px;
+      background: linear-gradient(90deg, var(--card) 25%, var(--muted) 50%, var(--card) 75%);
+      background-size: 200% 100%;
+      animation: loading 1.5s infinite;
+      border-radius: 12px;
+      margin-top: 1.5rem;
+    }
+
+    @keyframes loading {
+      0% { background-position: 200% 0; }
+      100% { background-position: -200% 0; }
+    }
+
+    /* Smooth scroll for sections */
+    .feature {
+      scroll-margin-top: 20px;
+    }
+
+    /* Light mode adjustments */
+    body.light .contact-section {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+
+    body.light .feature {
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    body.light .feature:hover {
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="toggle-wrapper">
+      <label>
+        <input type="checkbox" id="modeToggle" />
+        Toggle Light Mode
+      </label>
+    </div>
+    <img src="logo.png" alt="UnityCore Logo" />
+    <h1>UnityCore Proposal</h1>
+    <p>A unified platform for real-time communication, task management, and insights</p>
+  </header>
+
+  <!-- Progress Dots -->
+  <div class="progress-dots">
+    <div class="dot active" data-section="0"></div>
+    <div class="dot" data-section="1"></div>
+    <div class="dot" data-section="2"></div>
+    <div class="dot" data-section="3"></div>
+    <div class="dot" data-section="4"></div>
+    <div class="dot" data-section="5"></div>
+    <div class="dot" data-section="6"></div>
+  </div>
+
+  <section>
+    <!-- Dashboard -->
+    <div class="feature" data-section-index="0">
+      <h2>Dashboard</h2>
+      <p>Our dashboard features intuitive navigation with key priorities and updates front and center for operational clarity.</p>
+      <div class="loading" id="loading-0"></div>
+      <img src="dashboard.png" alt="Dashboard Screenshot" onclick="openModal(this.src)" style="display: none;" onload="imageLoaded(this, 'loading-0')">
+    </div>
+
+    <!-- Tasks -->
+    <div class="feature" data-section-index="1">
+      <h2>Tasks – Clear, Prioritized, and Assignable</h2>
+      <p>Create, assign, and manage tasks with clear priority levels for better execution.</p>
+      <div class="loading" id="loading-1"></div>
+      <img src="tasks.png" alt="Tasks Screenshot" onclick="openModal(this.src)" style="display: none;" onload="imageLoaded(this, 'loading-1')">
+    </div>
+
+    <!-- Chat -->
+    <div class="feature" data-section-index="2">
+      <h2>Chat – Live Group & Direct Messaging</h2>
+      <p>Instant communication with live updates. Create group chats or message individuals directly.</p>
+      <div class="loading" id="loading-2"></div>
+      <img src="chat.png" alt="Chat Screenshot" onclick="openModal(this.src)" style="display: none;" onload="imageLoaded(this, 'loading-2')">
+    </div>
+
+    <!-- Calendar -->
+    <div class="feature" data-section-index="3">
+      <h2>Calendar – Events & Staff Scheduling</h2>
+      <p>Organize upcoming events and manage staff schedules effortlessly.</p>
+      <div class="loading" id="loading-3"></div>
+      <img src="calendar.png" alt="Calendar Screenshot" onclick="openModal(this.src)" style="display: none;" onload="imageLoaded(this, 'loading-3')">
+    </div>
+
+    <!-- AI Insights -->
+    <div class="feature" data-section-index="4">
+      <h2>AI Insights – Actionable Business Analytics</h2>
+      <p>Get intelligent suggestions and visual reports to improve team performance.</p>
+      <div class="loading" id="loading-4"></div>
+      <img src="ai-insights.png" alt="AI Insights Screenshot" onclick="openModal(this.src)" style="display: none;" onload="imageLoaded(this, 'loading-4')">
+    </div>
+
+    <!-- Pricing & Implementation -->
+    <div class="feature pricing-implementation" data-section-index="5">
+      <h2>Pricing & Implementation</h2>
+      <p>Tailored solutions designed to meet your organization's unique requirements</p>
+      
+      <!-- Pricing Section -->
+      <div class="pricing-section">
+        <div class="pricing-header">
+          <span class="star">★</span>
+          <h3>Flexible Enterprise Pricing</h3>
+        </div>
+        
+        <div class="pricing-content">
+          <div class="pricing-grid">
+            <div class="pricing-column">
+              <h4>Pricing Considerations:</h4>
+              <ul>
+                <li>Number of locations/departments</li>
+                <li>Total user count across organization</li>
+                <li>Required system integrations</li>
+                <li>Custom feature requirements</li>
+                <li>Implementation complexity</li>
+              </ul>
+            </div>
+            
+            <div class="pricing-column">
+              <h4>Enterprise Package Includes:</h4>
+              <ul>
+                <li>Unlimited platform access</li>
+                <li>AI-powered business insights</li>
+                <li>Dedicated implementation support</li>
+                <li>24/7 enterprise support</li>
+                <li>Custom integrations & training</li>
+              </ul>
+            </div>
+          </div>
+          
+          <div class="pricing-cta">
+            <p>Contact us to discuss your specific requirements and receive a customized proposal</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Implementation Section -->
+      <div class="implementation-section">
+        <div class="implementation-header">
+          <span class="icon">📅</span>
+          <h3>Implementation Process</h3>
+        </div>
+        
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-marker">Q4 2025</div>
+            <div class="timeline-content">
+              <p>Requirements analysis, contract finalization, and platform completion</p>
+            </div>
+          </div>
+          
+          <div class="timeline-item">
+            <div class="timeline-marker">Q4 2025 - Q1 2026</div>
+            <div class="timeline-content">
+              <p>Data migration, system integration, and custom configuration</p>
+            </div>
+          </div>
+          
+          <div class="timeline-item">
+            <div class="timeline-marker">Q1 2026</div>
+            <div class="timeline-content">
+              <p>Full platform rollout and comprehensive user training</p>
+            </div>
+          </div>
+          
+          <div class="timeline-item">
+            <div class="timeline-marker">Q1 2026</div>
+            <div class="timeline-content">
+              <p>Go-live support and optimization phase</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="implementation-footer">
+          <p><strong>Full deployment by Q1 2026</strong>, with remainder of 2026 dedicated to platform finalization and migration preparation</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contact CTA -->
+    <div class="contact-section" data-section-index="6">
+      <h2>Ready to Transform Your Operations?</h2>
+      <p>Let's discuss how UnityCore can streamline your business processes and enhance team collaboration.</p>
+      <a href="https://mail.google.com/mail/?view=cm&fs=1&to=Steven@everupdigital.com" target="_blank" class="contact-button">
+        Get in Touch with Steven
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 UnityCore – Proposal by Paul Song<br>Email: paul@everupdigital.com</p>
+  </footer>
+
+  <!-- Modal -->
+  <div id="imageModal" class="modal" onclick="closeModal()">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <img class="modal-content" id="modalImage">
+  </div>
+
+  <script>
+    // Theme toggle with localStorage
+    const toggle = document.getElementById("modeToggle");
+    const userPref = localStorage.getItem("theme");
+    if (userPref === "light") {
+      document.body.classList.add("light");
+      toggle.checked = true;
+    }
+    toggle.addEventListener("change", () => {
+      document.body.classList.toggle("light");
+      localStorage.setItem("theme", document.body.classList.contains("light") ? "light" : "dark");
+    });
+
+    // Modal logic
+    function openModal(src) {
+      const modal = document.getElementById("imageModal");
+      const modalImg = document.getElementById("modalImage");
+      modal.style.display = "block";
+      modalImg.src = src;
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      document.getElementById("imageModal").style.display = "none";
+      document.body.style.overflow = 'auto';
+    }
+
+    // Escape key to close modal
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeModal();
+      }
+    });
+
+    // Image loading handler
+    function imageLoaded(img, loadingId) {
+      const loadingElement = document.getElementById(loadingId);
+      if (loadingElement) {
+        loadingElement.style.display = 'none';
+      }
+      img.style.display = 'block';
+    }
+
+    // Progress dots navigation
+    const dots = document.querySelectorAll('.progress-dots .dot');
+    const sections = document.querySelectorAll('.feature, .contact-section');
+
+    // Click handler for dots
+    dots.forEach((dot, index) => {
+      dot.addEventListener('click', () => {
+        sections[index].scrollIntoView({ behavior: 'smooth', block: 'center' });
+      });
+    });
+
+    // Intersection Observer for active dot
+    const observerOptions = {
+      threshold: 0.5,
+      rootMargin: '-20% 0px -20% 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const index = entry.target.getAttribute('data-section-index');
+          dots.forEach(dot => dot.classList.remove('active'));
+          if (dots[index]) {
+            dots[index].classList.add('active');
+          }
+        }
+      });
+    }, observerOptions);
+
+    sections.forEach(section => {
+      observer.observe(section);
+    });
+
+    // Smooth reveal animation on scroll
+    const revealElements = document.querySelectorAll('.feature');
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.1 });
+
+    revealElements.forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(20px)';
+      el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+      revealObserver.observe(el);
+    });
+  </script>
+
+</body>
+</html>
